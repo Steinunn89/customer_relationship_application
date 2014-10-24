@@ -68,6 +68,14 @@ class CRM
 
 		contact = @rolodex.display_particular_contact(which_contact_to_mod)
 
+		puts "Now your contact has:" 
+		puts "First Name: #{contact.first_name}"
+		puts "Last Name: #{contact.last_name}"
+		puts "Email: <#{contact.email}>" 
+		puts "Note: #{contact.note}"
+		puts "ID: #{contact.id}"
+		puts " "
+
 		#puts "Currently First Name: #{contact.first_name}, Last Name: #{contact.last_name}, Email: <#{contact.email}>, Note: #{contact.note}, ID: #{contact.id}"
 		
 		print_modify_menu
@@ -81,7 +89,7 @@ class CRM
 			elsif @what_to_mod == 4
 				contact.note = @what_to_mod_it_to
 			elsif @what_to_mod == 5
-				return print_main_menu
+				print_main_menu
 			else
 				puts "Error command not recoginzed"
 			end
@@ -111,7 +119,11 @@ class CRM
 			@what_to_mod_it_to = gets.chomp
 
 		elsif confirmation == "N"
-			return print_modify_menu
+			print_main_menu
+
+		else 
+			puts "Error command not recognized"
+			print_main_menu
 
 		end
 	end
@@ -127,13 +139,42 @@ class CRM
 
 	def display_contact
 
+	puts "Which contact would you like to display? (Input contact ID)"
+		which_contact_to_mod = gets.chomp.to_i
+
+		contact = @rolodex.display_particular_contact(which_contact_to_mod)
 		
+		puts "Now your contact has:" 
+		puts "First Name: #{contact.first_name}"
+		puts "Last Name: #{contact.last_name}"
+		puts "Email: <#{contact.email}>" 
+		puts "Note: #{contact.note}"
+		puts "ID: #{contact.id}"
+		puts " "
 
 
 	end
 
 	def display_attribute
 
+		puts "Which contact would you like to display? (Input contact ID)"
+		which_contact_to_mod = gets.chomp.to_i
+
+		contact = @rolodex.display_particular_contact(which_contact_to_mod)
+
+		print_display_menu
+	end
+
+	def print_display_menu
+
+		puts "What contact attribute do you want to be displayed?"
+		puts "[1] if you want to display first name"
+		puts "[2] if you want to display last name"
+		puts "[3] if you want to display email"
+		puts "[4] if you want to display note"
+		puts "[5] if you want to exit"
+
+		@what_to_mod = gets.chomp.to_i
 	end
 
 	def delete_contact
