@@ -70,7 +70,7 @@ class CRM
 		contact = @rolodex.display_particular_contact(which_contact_to_mod)
 
 		# contact.display
-		
+
 		print_modify_menu
 
 			if @what_to_mod == 1
@@ -145,11 +145,14 @@ class CRM
 
 	print_search_menu
 
+	array = Array.new
+
+
 
 		if @what_to_display == 1
 				puts "Enter text to search?"
 				answer=gets.chomp
-				puts "this works"
+				array = @rolodex.search_contact_by_first_name(answer)
 			elsif @what_to_display == 2
 				puts "Enter text to search?"
 				answer=gets.chomp
@@ -162,13 +165,21 @@ class CRM
 			elsif @what_to_display == 5
 				puts "Enter text to search?"
 				answer=gets.chomp.to_i
+				contact = @rolodex.search_contact_by_id(answer)
 			elsif @what_to_display == 6
 				print_main_menu
 			else
 				puts "Error command not recoginzed"
 		end
 
-		search = @rolodex.search_contact(answer)
+	
+	array.each do |search|
+		puts search.first_name
+
+		puts "Contacts that match this criteria: First Name: #{contact.first_name}, Last Name: #{contact.last_name}, Email: <#{contact.email}>, Note: #{contact.note}, ID: #{contact.id}"
+	end
+
+
 	end
 
 

@@ -31,14 +31,38 @@ class Rolodex
 
 		end
 	end
-	def search_contact (answer)
+	def search_contact_by_id (id)
 
-		# @contacts.each do |info|
-			
+		array = []
 
-		# 	if info == answer
-		# 	puts "this is working"
-		# 	end
+		@contacts.each do |contact|
+
+
+			if contact.id == id
+			array << contact
+
+			end
+		end
+		return array
+	end
+
+	def search_contact_by_first_name (name)
+
+		array = []
+
+		@contacts.each do |contact|
+
+
+			if contact.first_name == name 
+
+			array << contact
+
+			end
+
+		end
+
+		return array
+
 
 	end
 
