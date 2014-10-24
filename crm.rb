@@ -69,9 +69,7 @@ class CRM
 
 		contact = @rolodex.display_particular_contact(which_contact_to_mod)
 
-		contact.display
-
-		#puts "Currently First Name: #{contact.first_name}, Last Name: #{contact.last_name}, Email: <#{contact.email}>, Note: #{contact.note}, ID: #{contact.id}"
+		# contact.display
 		
 		print_modify_menu
 
@@ -129,6 +127,7 @@ class CRM
 		@rolodex.contacts.each do |contact|
 			puts "#{contact.first_name}, #{contact.last_name}, <#{contact.email}>, #{contact.id}"
 
+		contact = @rolodex.display_particular_contact(which_contact_to_display)
 		end
 	end
 
@@ -147,28 +146,29 @@ class CRM
 	print_search_menu
 
 
-		# if @what_to_display == 1
-		# 		puts "Enter text to search?"
-		# 		answer=gets.chomp
-		# 	elsif @what_to_display == 2
-		# 		puts "Enter text to search?"
-		# 		answer=gets.chomp
-		# 	elsif @what_to_display == 3
-		# 		puts "Enter text to search?"
-		# 		answer=gets.chomp
-		# 	elsif @what_to_display == 4
-		# 		puts "Enter text to search?"
-		# 		answer=gets.chomp
-		# 	elsif @what_to_display == 5
-		# 		puts "Enter text to search?"
-		# 		answer=gets.chomp.to_i
-		# 	elsif @what_to_display == 6
-		# 		print_main_menu
-		# 	else
-		# 		puts "Error command not recoginzed"
-		# end
+		if @what_to_display == 1
+				puts "Enter text to search?"
+				answer=gets.chomp
+				puts "this works"
+			elsif @what_to_display == 2
+				puts "Enter text to search?"
+				answer=gets.chomp
+			elsif @what_to_display == 3
+				puts "Enter text to search?"
+				answer=gets.chomp
+			elsif @what_to_display == 4
+				puts "Enter text to search?"
+				answer=gets.chomp
+			elsif @what_to_display == 5
+				puts "Enter text to search?"
+				answer=gets.chomp.to_i
+			elsif @what_to_display == 6
+				print_main_menu
+			else
+				puts "Error command not recoginzed"
+		end
 
-		# search = @rolodex.search_contact(answer)
+		search = @rolodex.search_contact(answer)
 	end
 
 
@@ -190,8 +190,7 @@ class CRM
 		puts "Which contact would you like to delete? (Input contact ID)"
 		which_contact_to_delete = gets.chomp.to_i
 
-		puts "Are you sure you want to delete? (Y/N)"
-		confirmation = 
+		# puts "Are you sure you want to delete? (Y/N)"
 
 		
 

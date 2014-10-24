@@ -32,7 +32,9 @@ class Rolodex
 		end
 	end
 	def search_contact (answer)
+
 		# @contacts.each do |info|
+			
 
 		# 	if info == answer
 		# 	puts "this is working"
