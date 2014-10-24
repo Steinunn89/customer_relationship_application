@@ -70,7 +70,7 @@ class CRM
 	def display_all_contacts
 
 		@rolodex.contacts.each do |contact|
-			puts "#{contact.first_name} #{contact.last_name}, <#{contact.email}>, #{contact.id}"
+			puts "#{contact.first_name} #{contact.last_name}, <#{contact.email}>, #{rolodex.contacts}"
 
 		end
 	end

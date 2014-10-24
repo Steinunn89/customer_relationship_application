@@ -1,5 +1,5 @@
 class Rolodex
-	attr_reader :contacts
+	attr_reader :contacts, :contact_id
 	@@index = 1000
 
 	def initialize
@@ -7,7 +7,7 @@ class Rolodex
 	end
 
 	def add_contact(contact)
-		contact.id = @@index
+		contact_id = @@index
 		@@index += 1
 		@contacts << contact
 	end
