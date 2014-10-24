@@ -7,6 +7,19 @@ class Contact
 		@email = email
 		@note = note
 	end
+
+	def display
+
+		puts "Now your contact has:" 
+		puts "First Name: #{first_name}"
+		puts "Last Name: #{last_name}"
+		puts "Email: <#{email}>" 
+		puts "Note: #{note}"
+		puts "ID: #{id}"
+		puts " "
+
+	end
+
 end
 
 #stores info for one contact, maybe runs some methods on initialize

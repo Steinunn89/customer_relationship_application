@@ -30,7 +30,8 @@ class CRM
 		  	input = gets.chomp.to_i
 		  	return if input == 7
 		  	choose_option(input)
-		end
+		  end
+		
 	end
 
 	def choose_option(option)
@@ -68,13 +69,7 @@ class CRM
 
 		contact = @rolodex.display_particular_contact(which_contact_to_mod)
 
-		puts "Now your contact has:" 
-		puts "First Name: #{contact.first_name}"
-		puts "Last Name: #{contact.last_name}"
-		puts "Email: <#{contact.email}>" 
-		puts "Note: #{contact.note}"
-		puts "ID: #{contact.id}"
-		puts " "
+		contact.display
 
 		#puts "Currently First Name: #{contact.first_name}, Last Name: #{contact.last_name}, Email: <#{contact.email}>, Note: #{contact.note}, ID: #{contact.id}"
 		
@@ -140,49 +135,74 @@ class CRM
 	def display_contact
 
 	puts "Which contact would you like to display? (Input contact ID)"
-		which_contact_to_mod = gets.chomp.to_i
+		which_contact_to_display = gets.chomp.to_i
 
-		contact = @rolodex.display_particular_contact(which_contact_to_mod)
-		
-		puts "Now your contact has:" 
-		puts "First Name: #{contact.first_name}"
-		puts "Last Name: #{contact.last_name}"
-		puts "Email: <#{contact.email}>" 
-		puts "Note: #{contact.note}"
-		puts "ID: #{contact.id}"
-		puts " "
+		contact = @rolodex.display_particular_contact(which_contact_to_display)
 
 
 	end
 
 	def display_attribute
 
-		puts "Which contact would you like to display? (Input contact ID)"
-		which_contact_to_mod = gets.chomp.to_i
+	print_search_menu
 
-		contact = @rolodex.display_particular_contact(which_contact_to_mod)
 
-		print_display_menu
+		# if @what_to_display == 1
+		# 		puts "Enter text to search?"
+		# 		answer=gets.chomp
+		# 	elsif @what_to_display == 2
+		# 		puts "Enter text to search?"
+		# 		answer=gets.chomp
+		# 	elsif @what_to_display == 3
+		# 		puts "Enter text to search?"
+		# 		answer=gets.chomp
+		# 	elsif @what_to_display == 4
+		# 		puts "Enter text to search?"
+		# 		answer=gets.chomp
+		# 	elsif @what_to_display == 5
+		# 		puts "Enter text to search?"
+		# 		answer=gets.chomp.to_i
+		# 	elsif @what_to_display == 6
+		# 		print_main_menu
+		# 	else
+		# 		puts "Error command not recoginzed"
+		# end
+
+		# search = @rolodex.search_contact(answer)
 	end
 
-	def print_display_menu
 
-		puts "What contact attribute do you want to be displayed?"
-		puts "[1] if you want to display first name"
-		puts "[2] if you want to display last name"
-		puts "[3] if you want to display email"
-		puts "[4] if you want to display note"
-		puts "[5] if you want to exit"
 
-		@what_to_mod = gets.chomp.to_i
+	def print_search_menu
+
+		puts "What contact attribute do you want to search by?"
+		puts "[1] if you want to search by first name"
+		puts "[2] if you want to search by last name"
+		puts "[3] if you want to search by email"
+		puts "[4] if you want to search by note"
+		puts "[5] if you want to search by ID"
+		puts "[6] if you want to exit"
+
+		@what_to_display = gets.chomp.to_i
 	end
 
 	def delete_contact
+		puts "Which contact would you like to delete? (Input contact ID)"
+		which_contact_to_delete = gets.chomp.to_i
+
+		puts "Are you sure you want to delete? (Y/N)"
+		confirmation = 
+
+		
+
+		contact = @rolodex.delete_contact(which_contact_to_delete)
+		
+
 
 	end
 end
 
-crm=CRM.new("BitMaker Labs CRM")
+crm=CRM.new("Steinunn's CRM")
 
 crm.main_menu
 
